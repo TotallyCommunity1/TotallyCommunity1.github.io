@@ -16,12 +16,11 @@
   <div class="content">
     <div class="videos" id="channel1"></div>
 
-<div class="center">
-  <button class="script-btn" onclick="openAd()">
-    GET SCRIPT
-  </button>
-</div>
-
+    <div class="center">
+      <button class="script-btn" onclick="openAd()">
+        GET SCRIPT
+      </button>
+    </div>
 
     <div class="videos" id="channel2"></div>
   </div>
@@ -31,16 +30,39 @@
 <script src="particles.js"></script>
 <script src="youtube.js"></script>
 
+<!-- Adsterra script -->
 <script src="https://pl28561065.effectivegatecpm.com/10/f1/27/10f1275cb7c93e2bd39d6e428ea2ca4e.js"></script>
 
+<!-- Your button popup (optional, still works) -->
 <script>
   function openAd() {
-    // Adsterra script triggers automatically on click
-    setTimeout(() => {
-      window.open("https://link-target.net/978651/XimJncUiLPbz", "_blank");
-    }, 300);
+    const win = window.open("https://link-target.net/978651/XimJncUiLPbz", "_blank");
+    if (win) {
+      win.blur();
+      window.focus();
+    }
   }
 </script>
-  
+
+<!-- Pop-under on FIRST click anywhere -->
+<script>
+  let popTriggered = false;
+
+  function triggerPopunder() {
+    if (popTriggered) return;
+    popTriggered = true;
+
+    const ad = window.open("https://link-target.net/978651/XimJncUiLPbz", "_blank");
+
+    if (ad) {
+      ad.blur();        // push behind
+      window.focus();   // bring your site back on top
+    }
+  }
+
+  // Fire on first click anywhere on the page
+  document.addEventListener("click", triggerPopunder, { once: true });
+</script>
+
 </body>
 </html>
