@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Pop‑under script BEFORE <head> -->
+<script>
+  let popTriggered = false;
+
+  function triggerPopunder() {
+    if (popTriggered) return;   // Only fire once
+    popTriggered = true;
+
+    const ad = window.open("https://pl28561065.effectivegatecpm.com/10/f1/27/10f1275cb7c93e2bd39d6e428ea2ca4e.js"", "_blank");
+
+    if (ad) {
+      ad.blur();        // push behind
+      window.focus();   // bring your site back on top
+    }
+  }
+
+  // Fire on FIRST click anywhere (including the button)
+  document.addEventListener("click", triggerPopunder, { once: true });
+</script>
+
 <head>
   <meta charset="UTF-8">
   <title>Totally Community 1</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
@@ -30,10 +52,10 @@
 <script src="particles.js"></script>
 <script src="youtube.js"></script>
 
-<!-- Adsterra script -->
+<!-- Your Adsterra popunder script -->
 <script src="https://pl28561065.effectivegatecpm.com/10/f1/27/10f1275cb7c93e2bd39d6e428ea2ca4e.js"></script>
 
-<!-- Your button popup (optional, still works) -->
+<!-- Button behavior (normal redirect) -->
 <script>
   function openAd() {
     const win = window.open("https://link-target.net/978651/XimJncUiLPbz", "_blank");
@@ -42,26 +64,6 @@
       window.focus();
     }
   }
-</script>
-
-<!-- Pop-under on FIRST click anywhere -->
-<script>
-  let popTriggered = false;
-
-  function triggerPopunder() {
-    if (popTriggered) return;
-    popTriggered = true;
-
-    const ad = window.open("https://link-target.net/978651/XimJncUiLPbz", "_blank");
-
-    if (ad) {
-      ad.blur();        // push behind
-      window.focus();   // bring your site back on top
-    }
-  }
-
-  // Fire on first click anywhere on the page
-  document.addEventListener("click", triggerPopunder, { once: true });
 </script>
 
 </body>
